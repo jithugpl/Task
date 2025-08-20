@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order List</title>
+</head>
+<body>
+ <h2>My Orders</h2>
+<ul>
+  {% for order in orders %}
+    <li>{{ order.product.name }} - {{ order.quantity }} pcs - ₹{{ order.total_price }} ({{ order.created_at }})</li>
+  {% empty %}
+    <li>No orders yet.</li>
+  {% endfor %}
+</ul>
+</body>
+</html>

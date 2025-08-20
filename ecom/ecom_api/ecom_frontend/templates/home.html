@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: darkblue;
+        }
+        button {
+            background-color: white;
+            color: darkblue;
+            padding: 10px 20px;
+            border: 2px solid darkblue;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkblue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to E-Commerce Home!</h1>
+
+
+    <!-- Link to Product List -->
+    <a href="{% url 'product_list' %}">
+        <button>View Products</button>
+    </a>
+    <a href="{% url 'signup' %}">
+        <button class="btn">Register</button>
+    </a>
+    <a href="{% url 'login' %}">
+        <button class="btn">Login</button>
+    </a>
+  <!-- Logout button -->
+    <a href="{% url 'login' %}">
+        <button class="btn">Logout</button>
+    </a>
+</body>
+</html>

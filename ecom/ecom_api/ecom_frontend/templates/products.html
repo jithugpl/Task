@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: darkblue;
+        }
+        button {
+            background-color: white;
+            color: darkblue;
+            padding: 10px 20px;
+            border: 2px solid darkblue;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkblue;
+            color: white;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .product-card h3 {
+            margin: 0 0 10px;
+        }
+        .product-card p {
+            margin: 5px 0;
+        }
+        .product-card {
+    background: #e6f2ff;  /* pure white card */
+    transition: transform 0.2s ease-in-out;
+}
+        .product-card hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+        .price {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<h1>Products List</h1>
+<div class="product-container">
+    {% for product in products %}
+    <div class="product-card">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p class="price">₹ {{ product.price }}</p>
+        <p><strong>Stock:</strong> {{ product.stock }}</p>
+<!--        <p><strong>Category:</strong> {{ product.category.name }}</p>-->
+<!--        <p><strong>Owner:</strong> {{ product.owner.username }}</p>-->
+
+        <a href="{% url 'buy_product' product.id %}"><button>Buy</button></a>
+
+    </div>
+    {% empty %}
+    <p>No products available.</p>
+    {% endfor %}
+     <!-- Add Product Button -->
+    <a href="{% url 'add_product' %}">
+        <button>Add Product</button>
+    </a>
+</div>
+</body>
+</html>
